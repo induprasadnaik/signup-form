@@ -83,6 +83,9 @@ submit.addEventListener('click',function(){
             selectedValue = operand[i].value;
         }
     }
+    if(selectedValue == ''){
+        result = 'Select any arithematic operation';
+    }
     if(selectedValue == 'plus'){
         let sum = Number(x)+Number(y);
         result = 'Sum of '+x+' and '+y+' is '+sum;
