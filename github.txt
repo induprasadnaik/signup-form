@@ -1,1 +1,3 @@
 GitHub Hosting Link: https://github.com/induprasadnaik/calculator
+
+Netlify : naiks-calculator.netlify.app
