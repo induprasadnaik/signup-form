@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 7 | Grade Calculator</title>
-    <link rel="stylesheet" href="/assignment7/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
      <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
@@ -14,35 +14,38 @@
 <header >
     <!-- <h1>INDUPRASAD NAIK</h1> -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-center">
-        <a class="navbar-brand" href="#">Grade Calculator</a>
+        <a class="navbar-brand" href="#">Arithematic Calculator</a>
     </nav>
 </header>
-<section id="hero" class="p-0 banner">
-    <div class="slider">
-        <div class="owl-carousel" id="slider">
-            <div class="slider-item">
-                <img src="/assignment7/images/banner.jpg" alt="Slide 1">
-                <div class="caption">
-                    <h1>Slider 1</h1>
-                    <a href="#about"><button class="btn btn-secondary">Calculator</button></a>
-                </div>
-            </div>
-            <div class="slider-item">
-                <img src="/assignment7/images/banner.jpg" alt="Slide 2">
-                <div class="caption">
-                    <h1>Slider 2</h1>
-                    <a href="#about"><button class="btn btn-secondary">Calculator</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 <section class="about" id="about">
     <div class="container">
         <div class="justify-content-center d-flex">
             <div class="calculator">
                 <h1>Grade Calculator</h1>
-                <button class="btn btn-primary" onclick="calculateGrade()">Enter Marks & Get Grade</button>
+                <form>
+                    <div class="form-group">
+                        <label>Value 1(x)</label>
+                        <input value="0" type="number" class="form-control" min="0" id="first_value" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Value 2(y)</label>
+                        <input value="0" type="number" class="form-control" min="0" id="second_value" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="w-100">Arithematic Operation</label>
+                        <input type="radio" value="plus" name="operand" class="me-1" id="plus" /><label class="me-2" for="plus"> x + y</label>
+                        <input type="radio" value="minus" name="operand" class="me-1" id="minus" /><label class="me-2" for="minus"> x - y</label>
+                        <input type="radio" value="multiply" name="operand" class="me-1" id="multiply" /><label class="me-2" for="multiply"> x * y</label>
+                        <input type="radio" value="divide" name="operand" class="me-1" id="divide" /><label class="me-2" for="divide"> x / y</label>
+                        <input type="radio" value="square" name="operand" class="me-1" id="square" /><label class="me-2" for="square"> x<sup>2</sup> and y<sup>2</sup></label>
+                        <input type="radio" value="cube" name="operand" class="me-1" id="cube" /><label class="me-2" for="cube"> x<sup>3</sup> and y<sup>3</sup></label>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary" id="submitbutton">Calculate</button>
+                    </div>
+                </form>
+                <div id="result"></div>
             </div>
         </div>
         <ul id="marks"></ul>
@@ -62,6 +65,50 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-    <script src="/assignment7/js/script.js"></script>
+<script>
+const submit = document.getElementById('submitbutton');
+
+
+submit.addEventListener('click',function(){
+    let x = document.getElementById('first_value').value;
+    let y = document.getElementById('second_value').value;
+    let result = '';
+    if(Number(x) == '0' || Number(y) == '0'){
+        result = 'Enter any number in any of the field';
+    }
+    const operand = document.getElementsByName('operand');
+    let selectedValue = '';
+    
+    for (let i = 0; i < operand.length; i++) {
+        if (operand[i].checked) {
+            selectedValue = operand[i].value;
+        }
+    }
+    if(selectedValue == 'plus'){
+        let sum = Number(x)+Number(y);
+        result = 'Sum of '+x+' and '+y+' is '+sum;
+    }else if(selectedValue == 'minus'){
+        let sum = Number(x)-Number(y);
+        result = 'DIfference between '+x+' and '+y+' is '+sum;
+    }else if(selectedValue == 'multiply'){
+        let sum = Number(x)*Number(y);
+        result = 'Multiple of '+x+' and '+y+' is '+sum;
+    }else if(selectedValue == 'divide'){
+        let sum = Number(x)/Number(y);
+        let div = Number(x)%Number(y);
+        result = 'Quotient of '+x+' and '+y+' is '+sum+' Remainder is '+div;
+    }else if(selectedValue == 'square'){
+        let xsq = Number(x)*Number(x);
+        let ysq = Number(y)*Number(y);
+        result = 'Square of '+x+' is '+xsq+' and '+y+' is '+ysq;
+    }else if(selectedValue == 'cube'){
+        let xcu = Number(x)*Number(x)*Number(x);
+        let ycu = Number(y)*Number(y)*Number(y);
+        result = 'Cube of '+x+' is '+xcu+' and '+y+' is '+ycu;
+
+    }
+    document.getElementById('result').innerText = result;
+});
+</script>
 </body>
 </html>
