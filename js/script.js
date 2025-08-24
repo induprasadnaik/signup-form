@@ -12,7 +12,7 @@ addTaskBtn.addEventListener("click", function () {
 
   const li = document.createElement("li");
 
-  // Task text span
+
   const span = document.createElement("span");
   span.textContent = taskText;
   span.style.cursor = "pointer";
@@ -33,13 +33,12 @@ addTaskBtn.addEventListener("click", function () {
     span.classList.toggle("completed");
   });
 
-  // Append elements
   li.appendChild(span);
   li.appendChild(completed);
   li.appendChild(deleteBtn);
   
   taskList.appendChild(li);
 
-  // Clear input
+  
   taskInput.value = "";
 });
