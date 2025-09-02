@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment 8 | Task Management</title>
-    <link rel="stylesheet" href="/assignment8/css/style.css">
+    <title>Assignment 9 | Contacts Book</title>
+    <link rel="stylesheet" href="/assignment9/css/style.css">
      <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
@@ -14,25 +14,40 @@
 <header >
     <!-- <h1>INDUPRASAD NAIK</h1> -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-center">
-        <a class="navbar-brand" href="#">Task Management</a>
+        <a class="navbar-brand" href="#">Contacts Book</a>
     </nav>
 </header>
 
 <section class="about" id="about">
     <div class="container">
+        
         <div class="justify-content-center d-flex">
-            <div class="calculator">
-                <h1>Task manager</h1>
+            <form class="calculator" id="contact-form">
+                <h1>Add Contact</h1>
                 <div class="form-group">
-                    <label>Task Title</label>
-                    <input type="text" class="form-control"  id="task" required>
+                    <label>Name</label>
+                    <input type="text" class="form-control"  id="name" required>
                 </div>
-                <button id="submit_task" class="btn btn-primary btn-sm mb-3">Add Task</button>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" class="form-control"  id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control"  id="email" required>
+                </div>
+                <div id="buttons" class="d-flex">
+                    <button id="submit_task" class="btn btn-primary btn-sm mb-3">Add Contact</button>
+                </div>
 
-                <h2 class="mb-2">Tasks</h2>
-                <ul id="result"></ul>
-            </div>
+            </form>
+
+            
         </div>
+        <section id="search">
+      <input type="text" id="search-box" placeholder="Search contacts...">
+    </section>
+        <div id="contact-list"></div>
         
     </div>
 </section>
@@ -47,7 +62,7 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="/assignment8/js/script.js"></script>
+<script src="/assignment9/js/script.js"></script>
 
 
 </body>
