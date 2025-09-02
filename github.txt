@@ -1,3 +1,2 @@
-GitHub Hosting Link: https://github.com/induprasadnaik/assignment8
+GitHub Hosting Link: https://induprasadnaik.github.io/assignment9/
 
-Netlify : https://naik-taskmanager.netlify.app/
